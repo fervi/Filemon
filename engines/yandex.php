@@ -7,7 +7,7 @@ $result = file('https://www.yandex.com/images/search?text='.$link.'&img_url='.$l
 
 $address = explode(">", $result[0]);
 
-if(in_array('The same picture was not found</div', $address, true))
+if((in_array('The same picture was not found</div', $address, true) ) || (in_array('location.href="/images/?cbirerror=1"</script', $address, true) ))
 {
 return 0;
 }
@@ -19,3 +19,4 @@ return 1;
 }
 
 ?>
+
